@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-type JSONResponse = Omit<GithubRepo, 'starred'>[];
 type Response = {
     id: number;
     description: string;
@@ -10,16 +9,6 @@ type Response = {
     language: string;
     html_url: string;
     stargazers_count: number;
-};
-
-export const updateStarredStatusinRepos = (
-    repos: JSONResponse,
-    starredRepos: number[]
-) => {
-    return repos.map((repo) => {
-        const starred = starredRepos.includes(repo.id);
-        return { ...repo, starred };
-    });
 };
 
 //keepUnusedDataFor can be used to refresh data

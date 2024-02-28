@@ -1,30 +1,54 @@
-# React + TypeScript + Vite
+# Description
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Github shows list of popular github repos from last week which can be starred and filtered via starred status & language. One can update star status for each repo.
 
-Currently, two official plugins are available:
+# Setup
+ - `yarn install` To install dependencies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ - `yarn run dev` Runs the app in the development mode.
 
-## Expanding the ESLint configuration
+ - `yarn test`  To run tests
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+# Directory Structure of components/containers
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+						App
+						|
+					RepoListPage
+					|          |
+				Filters    	PaginatedRepos
+					|           |		|
+			input checkbox   Paginate  RepoList
+											|		
+										RepoTile
+										|		|
+									Detail	IconButton + Star
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+# Architecture
+ - components: All the folders of react components used in the app. Each folder contains a tsx file for rendering and a ts file for styled components + test files for testing the functionality of the game.
+ - store: used `ZUSTAND` to support localstorage for storing starred repo ids. `useStarredRepoStore` is a hook responsible for any update and re-rendering when starred status of repo is changed.
+	Benefits of using zustand
+	A small, fast and scalable bearbones state-management solution using simplified flux principles. Has a comfy API based on hooks, isn't boilerplatey or opinionated.
+ - api: Uses rtk query to fetch list of github repos
+
+# Special Mention
+ - Added zustand store for localstorage usage for starred repos
+ - Used rtk for caching to avoid re-fetching.
+ - Added language filter - Repos can be filtered by language
+ - Used React Paginate for pagination and optimized update
+ - Responsive UI
+
+# Improvements
+ - Improved loading state for repos using UI skeletons
+ - Introduction of gql for parameter aliasing
+ - Improved UX for Pagination
+ - Extraction of styleguide components for re-usability
+ - Advanced Optimization: Introduction of Virtualized list of repos(includes BE involvement)
+
+# Third-party libraries
+ - zustand
+ - styled-components
+ - @reduxjs/toolkit
+ - react-redux
+ - react-paginate							
+							

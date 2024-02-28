@@ -1,15 +1,16 @@
 import styled from 'styled-components';
+import { colors, fontSize, spacing } from '../styles';
 
 export const RepoTileContainer = styled.li`
     display: flex;
-    padding: 20px 0;
-    border-bottom: 1px solid #d0d7de;
+    padding: ${spacing.xLarge} 0;
+    border-bottom: 1px solid ${colors.border};
     justify-content: space-between;
     align-items: flex-start;
 `;
 
 export const Heading = styled.h3`
-    padding-bottom: 10px;
+    padding-bottom: ${spacing.large};
     margin: 0;
 
     &:hover {
@@ -18,33 +19,33 @@ export const Heading = styled.h3`
 `;
 
 export const StarText = styled.span`
-    font-size: 11px;
+    font-size: ${fontSize.small};
     font-weight: bold;
 `;
 export const BottomPanel = styled.div`
     display: flex;
-    padding-top: 10px;
-    gap: 20px;
+    padding-top: ${spacing.large};
+    gap: ${spacing.xLarge};
     width: 100%;
 `;
 export const Language = styled.span`
-    color: #646d76;
-    font-size: 12px;
+    color: ${colors.text};
+    font-size: ${fontSize.xMedium};
 `;
 
 export const StarCount = styled.div`
     display: flex;
-    color: #646d76;
-    font-size: 12px;
-    gap: 4px;
+    color: ${colors.text};
+    font-size: ${fontSize.xMedium};
+    gap: ${spacing.small};
     align-items: center;
 `;
 
 export const StarContainer = styled.div`
     display: flex;
-    gap: 4px;
-    padding: 4px 8px;
-    background-color: #f3f4f6;
+    gap: ${spacing.small};
+    padding: ${spacing.small} ${spacing.medium};
+    background-color: ${colors.background};
     border-radius: 10px;
     align-items: center;
     justify-content: space-between;
@@ -52,10 +53,10 @@ export const StarContainer = styled.div`
 
 export const Description = styled.p`
     padding-bottom: 10px;
-    font-size: 14px;
+    font-size: ${fontSize.large};
     margin: 0;
     text-align: left;
-    color: #646d76;
+    color: ${colors.text};
     letter-spacing: 0.01em;
 `;
 

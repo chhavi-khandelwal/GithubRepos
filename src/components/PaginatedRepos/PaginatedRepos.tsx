@@ -10,11 +10,10 @@ type PaginatedReposProps = {
 function PaginatedRepos({ reposPerPage, repos }: PaginatedReposProps) {
     // Here we use repo offsets; we could also use page offsets
     // following the API or data you're working with.
-    const [repoOffset, setItemOffset] = useState(0);
+    const [repoOffset, setRepoOffset] = useState(0);
 
     // Simulate fetching repos from another resources.
-    // (This could be repos from props; or repos loaded in a local state
-    // from an API endpoint with useEffect and useState)
+    // These are repos from props
     const endOffset = repoOffset + reposPerPage;
     const currentItems = repos.slice(repoOffset, endOffset);
     const pageCount = Math.ceil(repos.length / reposPerPage);
@@ -22,7 +21,7 @@ function PaginatedRepos({ reposPerPage, repos }: PaginatedReposProps) {
     // Invoke when user click to request another page.
     const handlePageClick = (event: { selected: number }) => {
         const newOffset = (event.selected * reposPerPage) % repos.length;
-        setItemOffset(newOffset);
+        setRepoOffset(newOffset);
     };
 
     return (

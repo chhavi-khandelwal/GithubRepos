@@ -1,13 +1,11 @@
 import { useState } from 'react';
-import {
-    updateStarredStatusinRepos,
-    useGetReposQuery,
-} from '../../api/fetchGithubRepos';
+import { useGetReposQuery } from '../../api/fetchGithubRepos';
 import useStarredRepoStore from '../../store/useStarredRepoStore';
 import Filters from '../Filters/Filters';
 import PaginatedRepos from '../PaginatedRepos/PaginatedRepos';
-import { PageContainer } from './styles';
+import { PageContainer, Flex } from './styles';
 import getLastWeekDate from '../../utils/lastWeekDate';
+import { updateStarredStatusInRepos } from '../../utils/updateStarredStatusInRepos';
 
 const lastWeekDate = getLastWeekDate();
 
@@ -24,16 +22,16 @@ const RepoListPage = () => {
     const { data, error, isLoading } = useGetReposQuery(lastWeekDate);
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return <Flex>Loading...</Flex>;
     }
 
     if (error || !data) {
         const errorMessage =
             error && 'message' in error ? error.message : 'No data available';
-        return <div>Error: {errorMessage}</div>;
+        return <Flex>{errorMessage}</Flex>;
     }
 
-    let updatedRepos = updateStarredStatusinRepos(data, starredRepos);
+    let updatedRepos = updateStarredStatusInRepos(data, starredRepos);
     const filteredLanguages = updatedRepos.reduce((languages, repo) => {
         if (repo.language && !languages.includes(repo.language)) {
             languages.push(repo.language);

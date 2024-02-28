@@ -1,12 +1,13 @@
 import ReactPaginate from 'react-paginate';
 import styled from 'styled-components';
+import { fontSize, spacing } from '../styles';
 
 export const Paginate = styled(ReactPaginate)`
-    font-size: 14px;
+    font-size: ${fontSize.large};
     display: flex;
-    gap: 8px;
+    gap: ${spacing.medium};
     justify-content: center;
-    padding: 20px;
+    padding: ${spacing.xLarge};
 `;
 
 export const PaginatedContainer = styled.div`

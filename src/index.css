@@ -22,11 +22,31 @@ a:hover {
     color: #535bf2;
 }
 
+* {
+	box-sizing: border-box;
+}
+
 body {
     margin: 0;
     display: flex;
     min-width: 320px;
     min-height: 100vh;
+}
+
+#root {
+    margin: 0 auto;
+    padding: 2rem;
+	display: flex;
+	justify-content: flex-start;
+	align-items: start;
+	width: 100%;
+
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
 }
 
 @media (prefers-color-scheme: light) {
