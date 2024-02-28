@@ -1,17 +1,15 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+    margin: 0 auto;
+    padding: 2rem;
+	display: flex;
+	justify-content: flex-start;
+	align-items: start;
+	width: 100%;
+
 }
 
 ul {
-	padding: 0;
-	margin: 0;
-	list-style-type: none;
-}
-
-ul[arial-label="Pagination"] {
-	
-
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
 }
