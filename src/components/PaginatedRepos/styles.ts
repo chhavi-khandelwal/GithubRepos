@@ -8,6 +8,13 @@ export const Paginate = styled(ReactPaginate)`
     gap: ${spacing.medium};
     justify-content: center;
     padding: ${spacing.xLarge};
+
+    & .active {
+        color: #1a1f68;
+        a {
+            color: #1a1f68;
+        }
+    }
 `;
 
 export const PaginatedContainer = styled.div`

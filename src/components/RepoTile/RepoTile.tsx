@@ -35,11 +35,19 @@ const RepoTile = ({
         <RepoTileContainer>
             <DetailSection>
                 <Heading>
-                    <a href={githubUrl}>{name}</a>
+                    <a href={githubUrl} aria-label={`View repository: ${name}`}>
+                        {name}
+                    </a>
                 </Heading>
                 <Description>{description}</Description>
                 <BottomPanel>
-                    {language && <Language>{language}</Language>}
+                    {language && (
+                        <Language
+                            aria-label={`Repository language: ${language}`}
+                        >
+                            {language}
+                        </Language>
+                    )}
                     {noOfStars && (
                         <StarCount>
                             <Star size="18"></Star>
@@ -51,7 +59,9 @@ const RepoTile = ({
             <StarContainer>
                 <IconButton
                     onClick={() => toggleStarredStatus(id, starred)}
-                    ariaLabel="starred-repo"
+                    ariaLabel={
+                        starred ? 'Unstar repository' : 'Star repository'
+                    }
                 >
                     <>
                         <Star fillColor={starred} size="18"></Star>

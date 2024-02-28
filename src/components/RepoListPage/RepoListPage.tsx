@@ -18,6 +18,9 @@ const RepoListPage = () => {
         starred: false,
         languages: [],
     });
+    // State to manage offset for pagination
+    const [repoOffset, setRepoOffset] = useState(0);
+
     const starredRepos = useStarredRepoStore((state) => state.repos);
     const { data, error, isLoading } = useGetReposQuery(lastWeekDate);
 
@@ -50,6 +53,8 @@ const RepoListPage = () => {
     }
 
     const filterStarredRepos = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setRepoOffset(0);
+
         const { name, checked } = event.target;
         setFilters((prevFilters) => ({
             ...prevFilters,
@@ -62,6 +67,7 @@ const RepoListPage = () => {
     ) => {
         const { name, checked } = event.target;
         if (checked) {
+            setRepoOffset(0);
             setFilters((prevFilters) => ({
                 ...prevFilters,
                 languages: [...prevFilters.languages, name],
@@ -84,7 +90,12 @@ const RepoListPage = () => {
                 filteredLanguages={filteredLanguages}
                 filterReposByLanguage={filterReposByLanguage}
             />
-            <PaginatedRepos reposPerPage={5} repos={updatedRepos} />
+            <PaginatedRepos
+                reposPerPage={5}
+                repos={updatedRepos}
+                repoOffset={repoOffset}
+                setRepoOffset={setRepoOffset}
+            />
         </PageContainer>
     );
 };
