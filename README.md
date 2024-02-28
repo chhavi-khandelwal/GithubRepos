@@ -30,6 +30,7 @@ Github shows list of popular github repos from last week which can be starred an
 	Benefits of using zustand
 	A small, fast and scalable bearbones state-management solution using simplified flux principles. Has a comfy API based on hooks, isn't boilerplatey or opinionated.
  - api: Uses rtk query to fetch list of github repos
+ - Testing: Unit tests for RepoListPage added which tests rendering of repo list and filtering based on languages.
 
 # Special Mention
  - Added zustand store for localstorage usage for starred repos
@@ -43,6 +44,7 @@ Github shows list of popular github repos from last week which can be starred an
  - Introduction of gql for parameter aliasing
  - Improved UX for Pagination
  - Extraction of styleguide components for re-usability
+ - Unit test cases for all components
  - Advanced Optimization: Introduction of Virtualized list of repos(includes BE involvement)
 
 # Third-party libraries

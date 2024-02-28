@@ -11,7 +11,6 @@ type Response = {
     stargazers_count: number;
 };
 
-//keepUnusedDataFor can be used to refresh data
 export const api = createApi({
     reducerPath: 'api',
     baseQuery: fetchBaseQuery({ baseUrl: 'https://api.github.com/' }),
